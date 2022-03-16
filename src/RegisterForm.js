@@ -36,6 +36,10 @@ const RegisterForm = () => {
     }
     return(
         <div>
+            <button onClick={() => {  
+                    }}>New User? Register Here!
+            </button> 
+
             <form onSubmit={handleSubmit}>
                 <input placeholder = "username" value = {userName} 
                 type = 'text' onChange={updateUserName} />
@@ -43,7 +47,7 @@ const RegisterForm = () => {
                 type = 'text' onChange={updatePassword}/>
                 <input placeholder = "confirm password" value = {passwordComfirmation}
                 type = 'text' onChange={updatePasswordComfirmation} />
-                <button>Submit</button>                
+                <button>Submit</button>               
             </form>
         </div>        
 )}

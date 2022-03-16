@@ -3,8 +3,7 @@ export const getPosts = async () => {
     const url = `${baseUrl}/posts`;
     const response = await fetch(url)
     const json = await response.json()
-    // need to dig into data to extract posts
-    //console.log(json.data.posts[0])
+    // need to dig into data to extract posts   
     return json;
 } 
 export const testAuthentication = async () => {
@@ -23,7 +22,6 @@ export const testAuthentication = async () => {
     //console.log(json)
     return json;
 };
-
 export const registerUser = async (userObject) => {
     // URL that we're gonna reach out to
    try {
@@ -38,19 +36,15 @@ export const registerUser = async (userObject) => {
     });   
     // Take the body we got back and convert it to JS Object
     const json = await response.json();
-    //console.log(json)
-
     // TOKEN : json.data.token
    const token = json.data.token
    //console.log(token)
    localStorage.setItem("token", token)
-
     return json;
    } catch (error) {
        console.error(error)
    }
 }; 
-
 export const loginUser = async (userObject) => {
     // URL that we're gonna reach out to
    try {
@@ -64,14 +58,11 @@ export const loginUser = async (userObject) => {
         body: JSON.stringify(userObject)
     });   
     // Take the body we got back and convert it to JS Object
-    const json = await response.json();
-    console.log(json)
-
+    const json = await response.json();    
     // TOKEN : json.data.token
    const token = json.data.token
    console.log(token)
    localStorage.setItem("token", token)
-
     return json;
    } catch (error) {
        console.error(error)
