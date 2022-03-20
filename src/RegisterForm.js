@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { registerUser, testAuthentication} from "./api";
+import React, { useState} from 'react';
+import { registerUser} from "./api";
 const RegisterForm = () => {
-
     const [userName, setUserName] = useState('')
     const [password, setPassword] = useState('')
     const [passwordComfirmation, setPasswordComfirmation] = useState('')    
@@ -22,8 +21,7 @@ const RegisterForm = () => {
         setPassword('');
         setPasswordComfirmation('');
         //console.log(logIn)
-        console.log(token)
-        
+        console.log(token)        
     }
     const updateUserName = (event) => {
         setUserName(event.target.value)
@@ -36,10 +34,6 @@ const RegisterForm = () => {
     }
     return(
         <div>
-            <button onClick={() => {  
-                    }}>New User? Register Here!
-            </button> 
-
             <form onSubmit={handleSubmit}>
                 <input placeholder = "username" value = {userName} 
                 type = 'text' onChange={updateUserName} />
@@ -51,5 +45,4 @@ const RegisterForm = () => {
             </form>
         </div>        
 )}
-
 export default RegisterForm;
