@@ -21,7 +21,7 @@ const RegisterForm = () => {
         setPassword('');
         setPasswordComfirmation('');
         //console.log(logIn)
-        console.log(token)        
+         console.log(token)        
     }
     const updateUserName = (event) => {
         setUserName(event.target.value)
@@ -32,16 +32,17 @@ const RegisterForm = () => {
     const updatePasswordComfirmation = (event) => {
         setPasswordComfirmation(event.target.value)
     }
+    
     return(
         <div>
-            <form onSubmit={handleSubmit}>
-                <input placeholder = "username" value = {userName} 
+            <form className='regForm' onSubmit={handleSubmit}>
+                <input className='regin' placeholder = "New username" value = {userName} 
                 type = 'text' onChange={updateUserName} />
-                <input placeholder = "password" value = {password} 
+                <input className='regin' placeholder = "New password" value = {password} 
                 type = 'text' onChange={updatePassword}/>
-                <input placeholder = "confirm password" value = {passwordComfirmation}
+                <input className='regin' placeholder = "confirm new password" value = {passwordComfirmation}
                 type = 'text' onChange={updatePasswordComfirmation} />
-                <button>Submit</button>               
+                <button className='regsub'>Submit</button>               
             </form>
         </div>        
 )}

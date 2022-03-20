@@ -1,18 +1,13 @@
 import React from 'react';
 import { deletePost } from './api';
-
-
 const Delete = (props) => {
     const {id} = props
-    const handleDelete = () => {
-        console.log("deleted")
-        deletePost(id);
-        
+    const handleDelete = () => {        
+        deletePost(id);        
     }
-
     return(
-        <div>
-            <button onClick={handleDelete}>Delete</button>
+        <div className='deleter'>
+            <button className='deleteButton' onClick={handleDelete}>Delete</button>
         </div>
     )
 }

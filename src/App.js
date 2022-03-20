@@ -20,48 +20,44 @@ const App = () => {
   
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userUsing] = useState(localStorage.getItem("userUsing"))
-  
+  const [messageData, setMessageData] = useState([])
   useEffect(() => {
     setIsLoggedIn(!!localStorage.getItem("token"))
   }, []); 
   return (
-    <div>
-    
-    <h1>Welcome, {isLoggedIn ? userUsing : "please sign in."}</h1>
-    <HandleLogout isLoggedIn= {isLoggedIn} setIsLoggedIn= {setIsLoggedIn}/>
-       
+    <div className="main">          
     <Router>
-      <PageTabs/> 
+      <PageTabs isLoggedIn= {isLoggedIn} setIsLoggedIn= {setIsLoggedIn}/>
+      <div className="welcomeAndLog">
+        <h1 className="welcome">Welcome, {isLoggedIn ? userUsing : "please sign in."}</h1>
+        <HandleLogout isLoggedIn= {isLoggedIn} setIsLoggedIn= {setIsLoggedIn}/>
+      </div>  
       <Switch>
         <Route path= "/Profile">
-          <Profile/>
+          <Profile messageData= {messageData} setMessageData= {setMessageData}/>
         </Route>
         <Route path= "/login">
           <Login isLoggedIn= {isLoggedIn} setIsLoggedIn= {setIsLoggedIn}/>
         </Route>
-        <Route exact path= "/"><h1>Home</h1>          
-              
+        <Route exact path= "/">             
           <div>
             <PostList isLoggedIn= {isLoggedIn} setIsLoggedIn= {setIsLoggedIn}/>
           </div>
         </Route>
-          <Route exact path= "/PostList"><h1>PostList</h1>
-                           
+          <Route exact path= "/PostList">                           
         </Route>
-        <Route exact path= "/RegisterForm"><h1>RegisterForm</h1>
-                     
+        <Route exact path= "/RegisterForm">                     
           <RegisterForm/>
         </Route>
-        <Route exact path= "/Create"><h1>Create</h1>
-        
+        <Route exact path= "/Create">        
           <Create/>         
         </Route>
         <Route exact path= "/Edit"><h1>Edit page</h1>
           <Edit/>
         </Route>
         <Route exact path= "/MessageViewer"><h1>Message page</h1>
-          <MessageViewer/>
-          </Route>
+          <MessageViewer messageData= {messageData}/>
+        </Route>
       </Switch>
     </Router>    
 </div>   

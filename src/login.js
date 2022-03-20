@@ -24,12 +24,12 @@ const Login = (props) => {
     }   
     return (       
         <div> 
-            <form onSubmit={handleSubmit}>
-                <input style={isLoggedIn ? {display: "none"} : {display: "inline"}} placeholder = "Login username" value = {userName} 
+            <form className="loginer" onSubmit={handleSubmit}>
+                <input className="loginbar" style={isLoggedIn ? {display: "none"} : {display: "inline"}} placeholder = "Login username" value = {userName} 
                     type = 'text' onChange={updateUserName} />
-                <input style={isLoggedIn ? {display: "none"} : {display: "inline"}} placeholder = "Login password" value = {password} 
-                    type = 'text' onChange={updatePassword}/>            
-                <button style={isLoggedIn ? {display: "none"} : {display: "inline"}}>Login</button>                                    
+                <input className="loginbar" style={isLoggedIn ? {display: "none"} : {display: "inline"}} placeholder = "Login password" value = {password} 
+                    type = 'password' onChange={updatePassword}/>            
+                <button className="searchBarButton" style={isLoggedIn ? {display: "none"} : {display: "inline"}}>Login</button>                                    
             </form>           
         </div>
     )

@@ -11,9 +11,9 @@ const HandleLogout = (props) => {
         
 }
   return (
-        <div>
+        <div className='logInPhrase'>
             <form onSubmit={loggingOut}>
-                <button style={!isLoggedIn ? {display: "none"} : {display: "inline"}}>Log Out</button>
+                <button className= 'logoutButton'style={!isLoggedIn ? {display: "none"} : {display: "inline"}}>Log Out</button>
             </form>
             <h3>Your <b>{isLoggedIn ? 'currently' : 'not'}</b> logged in. </h3>
         </div>

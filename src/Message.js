@@ -17,13 +17,13 @@ const Message = (props) =>{
         setMessage(event.target.value);
     }
     return(
-    <div>
+    <div className='messageButton'>
         {textField ?
          <form onSubmit = {sendMessageHandler}>
              <input type ="text" placeholder = "Message..." value = {message} onChange = {updateMessage}/>
-             <button>Send Message</button>
+             <button className='mssButton'>Send Message</button>
          </form>
-        : <button onClick = {messageHandler}> Message </button> }
+        : <button className='mssButton' onClick = {messageHandler}> Message </button> }
     </div>
     )};
 export default Message;

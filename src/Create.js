@@ -26,11 +26,7 @@ const Create = () => {
     }
     const updateLocation = (event) => {
         setLocation(event.target.value)
-    }
-    const updateDilivery = () => {
-        setDilivery("willing to deliver")
-        console.log(dilivery)
-    }
+    }    
     const handleSubmit = (event) => {
         event.preventDefault();
         console.log(makeHeaders())
@@ -42,19 +38,16 @@ const Create = () => {
     }
     return(
         <div>
-        <form onSubmit={handleSubmit}>
-            <input placeholder = "Title" value = {title} 
+        <form className='createPost' onSubmit={handleSubmit}>
+            <input className='createTitle' placeholder = "Title" value = {title} 
                 type = 'text' onChange={updateTitle} />
-            <input placeholder='Description' value = {description}
+            <input className='createDescription' placeholder='Description' value = {description}
                 type = 'text' onChange={updateDecription}></input>
-            <input placeholder='Price' value={price}
+            <input className='createPrice' placeholder='Price' value={price}
                 type = 'text' onChange={updatePrice}></input>
-            <input placeholder='Location' value={location}
-                type = 'text' onChange={updateLocation}></input>
-            <input type="checkbox" id="diliver" value={dilivery}
-                onChange={updateDilivery}></input>
-            <label htmlFor="diliver">Delivery?</label>
-            <button >POST IT!</button>        
+            <input className='createLocation' placeholder='Location' value={location}
+                type = 'text' onChange={updateLocation}></input>            
+            <button className='createButton'>POST IT!</button>        
         </form>        
         </div>
     )
